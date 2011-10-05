@@ -59,8 +59,12 @@ public class VideoUriHandler implements UriHandler {
 		
 		Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setDataAndType(Uri.parse(url), mimeType);
-		ctx.startActivity(Intent.createChooser(intent, "Choose video player"));
+		// NK **** hacked to use default video service instead of prompting for a video player
+		// ctx.startActivity(Intent.createChooser(intent, "Choose video player"));
+		ctx.startActivity(intent);
 		return true;
+		
+		
 	}
 
 }
